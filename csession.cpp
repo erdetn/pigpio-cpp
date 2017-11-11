@@ -14,8 +14,7 @@ Session::Session(const char *daemonHostAddress)
 	this->m_isRunning = false;
 }
 
-Session::Session(const char *daemonHostAddress, 
-				 const char *daemonHostPort)
+Session::Session(const char *daemonHostAddress, const char *daemonHostPort)
 {
 	m_daemonHostAddress = new char[strlen(daemonHostAddress)+1];
 	strcpy(m_daemonHostAddress, daemonHostAddress);
@@ -35,9 +34,7 @@ Session::~Session()
 
 void Session::start()
 {	
-	this->m_sessionId = pigpio_start(this->m_daemonHostAddress,
-									 this->m_daemonHostPort);
-	
+	this->m_sessionId = pigpio_start(this->m_daemonHostAddress, this->m_daemonHostPort);
 	this->m_isRunning = (this->m_sessionId>-1);
 }
 
@@ -56,5 +53,4 @@ int Session::sessionID() const
 {
 	return this->m_sessionId;
 }
-	
 }
