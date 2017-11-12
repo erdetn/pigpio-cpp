@@ -25,10 +25,7 @@ void Serial::open()
 	if(m_serialDevice == NULL)
 		return;
 		
-	m_portHandler = serial_open(m_sessionID,
-								m_serialDevice,
-								m_baudRate,
-								0);
+	m_portHandler = serial_open(m_sessionID, m_serialDevice, m_baudRate, 0);
 	if(m_portHandler < 0)
 		return;
 	
@@ -53,8 +50,7 @@ int Serial::write(char *payload, int length)
 
 int Serial::writeLine(char *payload)
 {
-	return serial_write(m_sessionID, m_portHandler, 
-						payload, strlen(payload));
+	return serial_write(m_sessionID, m_portHandler, payload, strlen(payload));
 }
 	
 unsigned char Serial::readByte()
@@ -64,8 +60,7 @@ unsigned char Serial::readByte()
 
 int Serial::read(char *buffer, int bufferCapacity)
 {
-	return serial_read(m_sessionID, m_portHandler,
-					   buffer, bufferCapacity);
+	return serial_read(m_sessionID, m_portHandler, buffer, bufferCapacity);
 }
 
 int Serial::dataAvailable() const
