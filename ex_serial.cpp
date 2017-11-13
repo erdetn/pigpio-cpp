@@ -6,7 +6,7 @@
 #include <pigpiod_if2.h>
 #include <unistd.h>
 
-#include "csession.h"
+#include "cclientsession.h"
 #include "cutils.h"
 #include "cserial.h"
 
@@ -18,7 +18,7 @@ using namespace std;
 
 int main() 
 {
-	Session s("localhost");
+	ClientSession s("localhost");
 	
 	s.start();
 	
