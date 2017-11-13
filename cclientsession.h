@@ -5,12 +5,12 @@
 
 using namespace std;
 
-#ifndef SESSION_H
-#define SESSION_H
+#ifndef CLIENT_SESSION_H
+#define CLIENT_SESSION_H
 
 namespace pigpio_cpp
 {
-	class Session
+	class ClientSession
 	{
 	private:
 		char  *m_daemonHostAddress;
@@ -19,11 +19,10 @@ namespace pigpio_cpp
 		int    m_sessionId;
 		
 	public:
-		Session(const char *daemonHostAddress);
-		Session(const char *daemonHostAddress, 
-			const char *daemonHostPort);
+		ClientSession(const char *daemonHostAddress);
+		ClientSession(const char *daemonHostAddress, const char *daemonHostPort);
 				
-		~Session();
+		~ClientSession();
 		
 		void start();
 		void stop();
@@ -32,5 +31,4 @@ namespace pigpio_cpp
 	};
 	
 }
-
 #endif
