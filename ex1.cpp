@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include <pigpiod_if2.h>
 
-#include "csession.h"
+#include "cclientsession.h"
 #include "cutils.h"
 #include "cdigitaloutputpin.h"
 #include "cdigitalinputpin.h"
@@ -25,7 +25,7 @@ void event18(int pi, unsigned user_gpio, unsigned level,
 int main() 
 {
 	int testUserData;
-	Session s("localhost");
+	ClientSession s("localhost");
 	
 	s.start();
 	
