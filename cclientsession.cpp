@@ -1,9 +1,9 @@
-#include "csession.h"
+#include "cclientsession.h"
 
 namespace pigpio_cpp
 {
 
-Session::Session(const char *daemonHostAddress)
+ClientSession::ClientSession(const char *daemonHostAddress)
 {
 	m_daemonHostAddress = new char[strlen(daemonHostAddress)+1];
 	strcpy(m_daemonHostAddress, daemonHostAddress);
@@ -14,7 +14,7 @@ Session::Session(const char *daemonHostAddress)
 	this->m_isRunning = false;
 }
 
-Session::Session(const char *daemonHostAddress, const char *daemonHostPort)
+ClientSession::ClientSession(const char *daemonHostAddress, const char *daemonHostPort)
 {
 	m_daemonHostAddress = new char[strlen(daemonHostAddress)+1];
 	strcpy(m_daemonHostAddress, daemonHostAddress);
@@ -26,30 +26,30 @@ Session::Session(const char *daemonHostAddress, const char *daemonHostPort)
 	this->m_isRunning = false;
 }
 
-Session::~Session()
+ClientSession::~ClientSession()
 {
 	delete this->m_daemonHostAddress;
 	delete this->m_daemonHostPort;
 }
 
-void Session::start()
+void ClientSession::start()
 {	
 	this->m_sessionId = pigpio_start(this->m_daemonHostAddress, this->m_daemonHostPort);
 	this->m_isRunning = (this->m_sessionId>-1);
 }
 
-void Session::stop()
+void ClientSession::stop()
 {
 	pigpio_stop(this->m_sessionId); 	
 	this->m_isRunning = false;
 }
 
-bool Session::isRunning() const
+bool ClientSession::isRunning() const
 {
 	return this->m_isRunning;
 }
 
-int Session::sessionID() const
+int ClientSession::sessionID() const
 {
 	return this->m_sessionId;
 }
