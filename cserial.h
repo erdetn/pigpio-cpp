@@ -3,7 +3,6 @@
 #include <string.h>
 #include <pigpiod_if2.h>
 
-#include "csession.h"
 #include "cutils.h"
 
 #ifndef SERIAL_H
