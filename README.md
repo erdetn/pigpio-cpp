@@ -1,2 +1,3 @@
-# pigpio-cpp
-Small CPP library on top of pigpio C library.
+# pigpio-wcpp
+
+A C++ wrapper for the pigpio C library.
